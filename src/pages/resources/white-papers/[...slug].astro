@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const whitepapers = await getCollection('whitepapers');
+  return whitepapers.map(paper => ({
+    params: { slug: paper.id },
+    props: { paper },
+  }));
+}
+
+const { paper } = Astro.props;
+const { Content } = await render(paper);
+
+// Get other white papers for recommendations
+const allPapers = await getCollection('whitepapers');
+const otherPapers = allPapers
+  .filter(p => p.id !== paper.id)
+  .slice(0, 2);
+---
+
+<BaseLayout
+  title={paper.data.title}
+  description={paper.data.description}
+>
+  <!-- Hero Section -->
+  <section class="bg-obsidian py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-8">
+        <a href="/resources" class="text-silver hover:text-white">Resources</a>
+        <span class="text-silver mx-2">/</span>
+        <a href="/resources/white-papers" class="text-silver hover:text-white">White Papers</a>
+        <span class="text-silver mx-2">/</span>
+        <span class="text-white">{paper.data.category}</span>
+      </nav>
+
+      <div class="text-indigo-light font-medium mb-4">{paper.data.category}</div>
+
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
+        {paper.data.title}
+      </h1>
+
+      <p class="text-xl text-silver mb-8">
+        {paper.data.description}
+      </p>
+
+      {paper.data.downloadUrl && (
+        <a
+          href={paper.data.downloadUrl}
+          class="inline-flex items-center px-6 py-3 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download Full PDF
+        </a>
+      )}
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 bg-mist">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="bg-white rounded-xl p-8 md:p-12 prose prose-lg max-w-none prose-headings:font-display prose-headings:text-obsidian prose-p:text-graphite prose-a:text-indigo prose-a:no-underline hover:prose-a:underline prose-strong:text-obsidian prose-li:text-graphite">
+        <Content />
+      </article>
+
+      <!-- Download CTA within content -->
+      {paper.data.downloadUrl && (
+        <div class="mt-8 bg-white rounded-xl p-8 text-center border-2 border-dashed border-indigo/30">
+          <h3 class="text-xl font-display font-semibold text-obsidian mb-3">
+            Want the Full Guide?
+          </h3>
+          <p class="text-graphite mb-6">
+            Download the complete PDF with detailed analysis, templates, and additional resources.
+          </p>
+          <a
+            href={paper.data.downloadUrl}
+            class="inline-flex items-center px-6 py-3 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download PDF
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- More White Papers -->
+  {otherPapers.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-display font-bold text-obsidian mb-8">More Resources</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {otherPapers.map(other => (
+            <a href={`/resources/white-papers/${other.id}`} class="group block bg-mist rounded-xl p-6 hover:shadow-lg transition-all">
+              <div class="text-sm text-indigo font-medium mb-2">{other.data.category}</div>
+              <h3 class="text-lg font-display font-semibold text-obsidian mb-2 group-hover:text-indigo transition-colors">
+                {other.data.title}
+              </h3>
+              <p class="text-graphite text-sm line-clamp-2">{other.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-obsidian">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-display font-bold text-white mb-4">
+        Need Help Applying These Insights?
+      </h2>
+      <p class="text-silver mb-8">
+        Let's discuss how these frameworks apply to your specific situation.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors">
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</BaseLayout>

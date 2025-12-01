@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+
+const pageData = {
+  title: "Hybrid & Migration",
+  subtitle: "Smooth Transitions",
+  description: "Moving from legacy to cloud doesn't have to be all-or-nothing. I design phased migration strategies that minimize risk, maintain compliance, and ensure zero downtime during the transition.",
+  icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>`,
+  whoItsFor: [
+    "Organizations with legacy RightFax or other on-premise systems",
+    "Companies that can't do a \"big bang\" migration",
+    "Healthcare systems needing to maintain compliance during transition",
+    "Enterprises consolidating multiple fax systems",
+    "Businesses with complex integrations that need careful migration"
+  ],
+  howIHelp: [
+    "Assess current infrastructure and document all integrations",
+    "Design a phased migration roadmap with clear milestones",
+    "Implement hybrid architectures that bridge on-premise and cloud",
+    "Manage number porting and routing during transition",
+    "Validate compliance at each phase of migration",
+    "Provide rollback plans and risk mitigation strategies"
+  ],
+  technologies: [
+    { name: "etherFAX SEN", description: "Secure Exchange Network for hybrid deployments" },
+    { name: "OpenText Cloud Fax", description: "Cloud extension for RightFax environments" },
+    { name: "FaxCore Hybrid", description: "Bridge on-premise FaxCore to cloud" },
+    { name: "Retarus Hybrid", description: "Flexible hybrid architecture options" },
+    { name: "T.38 Gateways", description: "Protocol bridging for legacy systems" },
+    { name: "Custom Middleware", description: "Integration bridges and routing solutions" }
+  ],
+  certifications: ["HIPAA", "SOC 2 Type II", "PCI DSS", "HITRUST"]
+};
+---
+
+<BaseLayout
+  title={pageData.title}
+  description={pageData.description}
+>
+  <ServicePageLayout {...pageData} />
+</BaseLayout>

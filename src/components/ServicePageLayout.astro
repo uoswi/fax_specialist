@@ -1,0 +1,152 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  whoItsFor: string[];
+  howIHelp: string[];
+  technologies: { name: string; description: string }[];
+  certifications?: string[];
+  icon: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  whoItsFor,
+  howIHelp,
+  technologies,
+  certifications = [],
+  icon
+} = Astro.props;
+---
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-b from-slate to-obsidian py-20 lg:py-28">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="w-16 h-16 rounded-xl bg-indigo/20 text-indigo flex items-center justify-center mb-6">
+        <Fragment set:html={icon} />
+      </div>
+      <p class="text-indigo-light font-medium text-small uppercase tracking-wider mb-3">
+        {subtitle}
+      </p>
+      <h1 class="font-headline text-h1 lg:text-display text-pearl mb-6">
+        {title}
+      </h1>
+      <p class="text-body-lg text-steel leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-ivory">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Who It's For -->
+      <div>
+        <h2 class="font-headline text-h2 mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </span>
+          Who It's For
+        </h2>
+        <ul class="space-y-4">
+          {whoItsFor.map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-indigo mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-obsidian">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- How I Help -->
+      <div>
+        <h2 class="font-headline text-h2 mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </span>
+          How I Help
+        </h2>
+        <ul class="space-y-4">
+          {howIHelp.map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-indigo mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-obsidian">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies -->
+<section class="py-20 bg-pearl">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <h2 class="font-headline text-h2 mb-10 text-center">
+      Technologies I Work With
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {technologies.map((tech) => (
+        <div class="bg-ivory p-6 rounded-lg border border-mist">
+          <h3 class="font-headline text-h4 mb-2 text-obsidian">{tech.name}</h3>
+          <p class="text-steel text-small">{tech.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+{certifications.length > 0 && (
+  <section class="py-16 bg-slate">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="text-center">
+        <h2 class="font-headline text-h3 text-pearl mb-8">
+          Compliance & Certifications
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          {certifications.map((cert) => (
+            <span class="bg-obsidian/50 text-pearl px-5 py-2 rounded-full text-small font-medium border border-indigo/30">
+              {cert}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- CTA Section -->
+<section class="py-20 bg-ivory">
+  <div class="max-w-[1200px] mx-auto px-6 text-center">
+    <h2 class="font-headline text-h2 mb-4">
+      Ready to get started?
+    </h2>
+    <p class="text-body-lg text-steel mb-8 max-w-xl mx-auto">
+      Let's discuss how I can help you with your {title.toLowerCase()} needs.
+    </p>
+    <a
+      href="/contact"
+      class="inline-flex items-center gap-2 bg-indigo text-pearl px-8 py-4 rounded-sm font-medium hover:bg-indigo-dark transition-colors"
+    >
+      Schedule a Consultation
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</section>

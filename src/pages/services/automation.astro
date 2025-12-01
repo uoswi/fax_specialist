@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+
+const pageData = {
+  title: "Automation & Integration",
+  subtitle: "Work Smarter",
+  description: "Stop manually processing faxes. I help you automate fax workflows, integrate with your existing systems, and build custom solutions that save time and reduce errors.",
+  icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+  whoItsFor: [
+    "Healthcare organizations integrating fax with EHR systems",
+    "Financial services automating document workflows",
+    "Legal firms with high-volume fax processing needs",
+    "Any organization manually routing or processing faxes",
+    "Businesses looking to add OCR and intelligent document processing"
+  ],
+  howIHelp: [
+    "Analyze existing workflows and identify automation opportunities",
+    "Design and implement API integrations with EHR, ERP, and CRM systems",
+    "Build custom routing rules based on content, sender, or metadata",
+    "Implement OCR and intelligent document recognition",
+    "Create automated notifications and escalation workflows",
+    "Set up audit trails and compliance reporting"
+  ],
+  technologies: [
+    { name: "Epic/Cerner Integration", description: "Direct EHR fax integration for healthcare" },
+    { name: "Salesforce Connect", description: "CRM-integrated fax workflows" },
+    { name: "Microsoft Power Automate", description: "Low-code workflow automation" },
+    { name: "Zapier/Make", description: "Connect fax to thousands of apps" },
+    { name: "Custom APIs", description: "RESTful integrations for any system" },
+    { name: "ABBYY/Kofax OCR", description: "Intelligent document recognition" }
+  ],
+  certifications: ["HIPAA", "SOC 2 Type II", "HL7 FHIR"]
+};
+---
+
+<BaseLayout
+  title={pageData.title}
+  description={pageData.description}
+>
+  <ServicePageLayout {...pageData} />
+</BaseLayout>

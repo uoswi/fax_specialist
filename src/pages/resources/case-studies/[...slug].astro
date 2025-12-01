@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('caseStudies');
+  return caseStudies.map(study => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+
+// Get related case studies (same industry, excluding current)
+const allStudies = await getCollection('caseStudies');
+const relatedStudies = allStudies
+  .filter(s => s.data.industry === study.data.industry && s.id !== study.id)
+  .slice(0, 2);
+---
+
+<BaseLayout
+  title={study.data.title}
+  description={study.data.description}
+>
+  <!-- Hero Section -->
+  <section class="bg-obsidian py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-8">
+        <a href="/resources" class="text-silver hover:text-white">Resources</a>
+        <span class="text-silver mx-2">/</span>
+        <a href="/resources/case-studies" class="text-silver hover:text-white">Case Studies</a>
+        <span class="text-silver mx-2">/</span>
+        <span class="text-white">{study.data.industry}</span>
+      </nav>
+
+      <div class="text-indigo-light font-medium mb-4">{study.data.industry}</div>
+
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
+        {study.data.title}
+      </h1>
+
+      <p class="text-xl text-silver">
+        {study.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Metrics Bar -->
+  {study.data.metrics && (
+    <section class="bg-slate py-8">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {study.data.metrics.map(metric => (
+            <div class="text-center">
+              <div class="text-3xl font-bold text-indigo-light">{metric.value}</div>
+              <div class="text-sm text-silver mt-1">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Challenge & Solution Overview -->
+  <section class="py-12 bg-mist">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-display font-semibold text-obsidian">The Challenge</h3>
+          </div>
+          <p class="text-graphite">{study.data.challenge}</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-display font-semibold text-obsidian">The Solution</h3>
+          </div>
+          <p class="text-graphite">{study.data.solution}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Highlight -->
+  {study.data.results && (
+    <section class="py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-display font-bold text-obsidian mb-6">Key Results</h2>
+        <ul class="space-y-3">
+          {study.data.results.map(result => (
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-indigo flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-graphite">{result}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Full Content -->
+  <section class="py-16 bg-mist">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="bg-white rounded-xl p-8 md:p-12 prose prose-lg max-w-none prose-headings:font-display prose-headings:text-obsidian prose-p:text-graphite prose-a:text-indigo prose-a:no-underline hover:prose-a:underline prose-strong:text-obsidian">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Case Studies -->
+  {relatedStudies.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-display font-bold text-obsidian mb-8">Related Case Studies</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {relatedStudies.map(related => (
+            <a href={`/resources/case-studies/${related.id}`} class="group block bg-mist rounded-xl p-6 hover:shadow-lg transition-all">
+              <div class="text-sm text-indigo font-medium mb-2">{related.data.industry}</div>
+              <h3 class="text-lg font-display font-semibold text-obsidian mb-2 group-hover:text-indigo transition-colors">
+                {related.data.title}
+              </h3>
+              <p class="text-graphite text-sm line-clamp-2">{related.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-obsidian">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-display font-bold text-white mb-4">
+        Ready for Similar Results?
+      </h2>
+      <p class="text-silver mb-8">
+        Every organization has unique challenges. Let's discuss yours.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-6 py-3 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors">
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</BaseLayout>

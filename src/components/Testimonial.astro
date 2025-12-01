@@ -1,0 +1,76 @@
+---
+const testimonials = [
+  {
+    quote: "We were spending $80K/month on fax infrastructure with constant reliability issues. Within 6 months, costs were down 60% and we haven't had a single outage.",
+    author: "VP of IT",
+    company: "Regional Healthcare Network",
+    metric: "60% cost reduction"
+  },
+  {
+    quote: "Finally, one person who understands both the technical and compliance requirements. No more explaining HIPAA to offshore support teams.",
+    author: "CTO",
+    company: "Financial Services Firm",
+    metric: "Zero compliance issues"
+  }
+];
+---
+
+<section class="py-24 bg-ivory">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-indigo font-medium text-small uppercase tracking-wider mb-3">Results</p>
+      <h2 class="font-headline text-h1 mb-4">
+        What Clients Say
+      </h2>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-pearl p-8 lg:p-10 rounded-lg border border-mist relative">
+          <!-- Quote mark -->
+          <div class="absolute top-6 left-6 text-indigo/10">
+            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+
+          <!-- Metric badge -->
+          <div class="inline-block bg-indigo/10 text-indigo text-small font-medium px-3 py-1 rounded-full mb-6">
+            {testimonial.metric}
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="text-body-lg text-obsidian mb-6 leading-relaxed">
+            "{testimonial.quote}"
+          </blockquote>
+
+          <!-- Author -->
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-slate flex items-center justify-center text-pearl font-semibold">
+              {testimonial.author.split(' ').map(n => n[0]).join('')}
+            </div>
+            <div>
+              <div class="font-medium text-obsidian">{testimonial.author}</div>
+              <div class="text-small text-steel">{testimonial.company}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Case Studies Link -->
+    <div class="text-center mt-12">
+      <a
+        href="/resources/case-studies"
+        class="inline-flex items-center gap-2 text-indigo font-medium hover:gap-3 transition-all"
+      >
+        Read full case studies
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

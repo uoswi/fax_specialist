@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+
+const pageData = {
+  title: "Cloud Fax Solutions",
+  subtitle: "Scale Without Limits",
+  description: "Eliminate hardware, reduce costs, and scale globally with cloud-native fax infrastructure. I help you select, implement, and optimize cloud fax solutions that integrate seamlessly with your existing workflows.",
+  icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
+  whoItsFor: [
+    "Organizations looking to eliminate fax hardware and phone lines",
+    "Distributed enterprises with multiple locations",
+    "Companies scaling rapidly and need flexible capacity",
+    "Healthcare providers moving to cloud-first infrastructure",
+    "Businesses wanting predictable, usage-based pricing"
+  ],
+  howIHelp: [
+    "Evaluate and select the right cloud fax provider for your needs",
+    "Design architecture for high availability and compliance",
+    "Implement API integrations with your existing systems",
+    "Configure number porting and migration from legacy systems",
+    "Set up monitoring, alerting, and reporting dashboards",
+    "Negotiate enterprise agreements and optimize costs"
+  ],
+  technologies: [
+    { name: "etherFAX", description: "Secure, HIPAA-compliant cloud fax network with direct EHR integrations" },
+    { name: "Retarus", description: "Global cloud fax with strong European presence and compliance" },
+    { name: "eFax Enterprise", description: "Established cloud fax with broad compatibility" },
+    { name: "Consensus Cloud", description: "Healthcare-focused cloud fax solutions" },
+    { name: "SR Fax", description: "Simple, reliable cloud fax for healthcare" },
+    { name: "Documo", description: "Modern API-first cloud fax platform" }
+  ],
+  certifications: ["HIPAA", "SOC 2 Type II", "HITRUST", "ISO 27001"]
+};
+---
+
+<BaseLayout
+  title={pageData.title}
+  description={pageData.description}
+>
+  <ServicePageLayout {...pageData} />
+</BaseLayout>

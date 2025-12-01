@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const whitepapers = await getCollection('whitepapers');
+const sortedPapers = whitepapers.sort(
+  (a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime()
+);
+
+const categories = [...new Set(whitepapers.map(p => p.data.category))];
+---
+
+<BaseLayout
+  title="White Papers & Guides"
+  description="In-depth analysis, buyer's guides, and practical frameworks for enterprise fax decision-making."
+>
+  <!-- Hero Section -->
+  <section class="bg-obsidian py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm mb-8">
+        <a href="/resources" class="text-silver hover:text-white">Resources</a>
+        <span class="text-silver mx-2">/</span>
+        <span class="text-white">White Papers</span>
+      </nav>
+
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+        White Papers & Guides
+      </h1>
+      <p class="text-xl text-silver max-w-3xl">
+        In-depth analysis and practical frameworks to help you make informed decisions about enterprise fax infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Pills -->
+  <section class="bg-white border-b border-cloud py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 overflow-x-auto pb-2">
+        <span class="text-sm text-graphite font-medium whitespace-nowrap">Filter by category:</span>
+        <button class="px-4 py-2 text-sm font-medium bg-indigo text-white rounded-full" data-filter="all">
+          All
+        </button>
+        {categories.map(category => (
+          <button
+            class="px-4 py-2 text-sm font-medium text-graphite bg-mist rounded-full hover:bg-cloud transition-colors whitespace-nowrap"
+            data-filter={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- White Papers List -->
+  <section class="py-16 bg-mist">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-6" id="whitepapers-list">
+        {sortedPapers.map(paper => (
+          <article
+            class="whitepaper-card group bg-white rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+            data-category={paper.data.category}
+          >
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-48 bg-indigo/5 flex items-center justify-center p-8">
+                <svg class="w-16 h-16 text-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+
+              <div class="flex-1 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-sm text-indigo font-medium">{paper.data.category}</span>
+                  {paper.data.featured && (
+                    <span class="text-xs bg-indigo/10 text-indigo px-2 py-1 rounded-full">Featured</span>
+                  )}
+                </div>
+
+                <h2 class="text-xl md:text-2xl font-display font-semibold text-obsidian mb-3 group-hover:text-indigo transition-colors">
+                  <a href={`/resources/white-papers/${paper.id}`}>
+                    {paper.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-graphite mb-6">
+                  {paper.data.description}
+                </p>
+
+                <div class="flex items-center gap-4">
+                  <a
+                    href={`/resources/white-papers/${paper.id}`}
+                    class="inline-flex items-center text-indigo font-medium hover:text-indigo-dark transition-colors"
+                  >
+                    Read online
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+
+                  {paper.data.downloadUrl && (
+                    <a
+                      href={paper.data.downloadUrl}
+                      class="inline-flex items-center text-graphite font-medium hover:text-obsidian transition-colors"
+                    >
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      Download PDF
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-display font-bold text-obsidian mb-4">
+        Get New Resources Delivered
+      </h2>
+      <p class="text-graphite mb-8">
+        Subscribe to receive new case studies and guides when they're published.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="flex-1 px-4 py-3 border border-cloud rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo/50 focus:border-indigo"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('.whitepaper-card');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        buttons.forEach(btn => {
+          btn.classList.remove('bg-indigo', 'text-white');
+          btn.classList.add('text-graphite', 'bg-mist');
+        });
+        button.classList.remove('text-graphite', 'bg-mist');
+        button.classList.add('bg-indigo', 'text-white');
+
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

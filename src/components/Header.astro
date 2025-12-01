@@ -1,0 +1,252 @@
+---
+const navLinks = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Results', href: '#results' },
+];
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="mx-4 lg:mx-8 mt-4">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-14 lg:h-16 flex items-center justify-between rounded-2xl transition-all duration-300 header-nav">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+          <span class="text-white font-bold text-base">F</span>
+        </div>
+        <div class="hidden sm:flex flex-col">
+          <span class="logo-text font-display text-lg font-bold leading-tight transition-colors">
+            Fax Specialist
+          </span>
+          <span class="logo-subtitle text-[10px] uppercase tracking-wider -mt-0.5 transition-colors">Enterprise Consulting</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center">
+        <div class="nav-container flex items-center gap-1 px-2 py-1.5 rounded-full transition-colors">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all"
+              style="font-family: 'Inter', system-ui, sans-serif;"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:block">
+        <a
+          href="#contact"
+          class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: #ffffff; font-family: 'Inter', system-ui, sans-serif; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);"
+        >
+          Let's Talk
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="mobile-btn lg:hidden p-2.5 rounded-xl transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-menu" class="lg:hidden hidden mx-4 mt-2">
+    <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+      <div class="px-4 py-5 space-y-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block py-3 px-4 rounded-xl font-medium transition-all text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 mobile-nav-link"
+            style="font-family: 'Inter', system-ui, sans-serif;"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="pt-3">
+          <a
+            href="#contact"
+            class="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium transition-all mobile-nav-link"
+            style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: #ffffff; font-family: 'Inter', system-ui, sans-serif;"
+          >
+            Let's Talk
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+
+  /* Light mode (default - over light backgrounds) */
+  .header-light .header-nav {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .header-light .logo-text {
+    color: #111827;
+  }
+
+  .header-light .logo-subtitle {
+    color: #6B7280;
+  }
+
+  .header-light .nav-link {
+    color: #4B5563;
+  }
+
+  .header-light .nav-link:hover {
+    color: #111827;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .header-light .nav-container {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .header-light .mobile-btn {
+    color: #4B5563;
+  }
+
+  /* Dark mode (over dark backgrounds like stats, contact) */
+  .header-dark .header-nav {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-dark .logo-text {
+    color: #FFFFFF;
+  }
+
+  .header-dark .logo-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .header-dark .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .header-dark .nav-link:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .header-dark .nav-container {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .header-dark .mobile-btn {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .header-dark .mobile-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  const headerNav = document.querySelector('.header-nav');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  // Define dark sections (sections with dark backgrounds)
+  const darkSections = ['section-stats', 'contact'];
+
+  // Check if header is over a dark section
+  function updateHeaderTheme() {
+    const headerRect = headerNav?.getBoundingClientRect();
+    if (!headerRect) return;
+
+    const headerMiddle = headerRect.top + headerRect.height / 2;
+
+    let isOverDark = false;
+
+    // Check all sections to find which one the header is over
+    document.querySelectorAll('section[id], section[data-theme]').forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionId = section.id || '';
+      const sectionTheme = section.getAttribute('data-theme');
+
+      // Check if header middle point is within this section
+      if (headerMiddle >= rect.top && headerMiddle <= rect.bottom) {
+        // Check if this section is dark
+        if (sectionTheme === 'dark' || darkSections.some(id => sectionId.includes(id) || sectionId === id)) {
+          isOverDark = true;
+        }
+        // Also check inline styles for dark backgrounds
+        const bg = window.getComputedStyle(section).background;
+        if (bg.includes('rgb(17') || bg.includes('rgb(15') || bg.includes('rgb(30') || bg.includes('#0F') || bg.includes('#1E') || bg.includes('#111')) {
+          isOverDark = true;
+        }
+      }
+    });
+
+    if (isOverDark) {
+      header?.classList.remove('header-light');
+      header?.classList.add('header-dark');
+    } else {
+      header?.classList.remove('header-dark');
+      header?.classList.add('header-light');
+    }
+  }
+
+  // Initialize and listen for scroll
+  window.addEventListener('scroll', updateHeaderTheme, { passive: true });
+  window.addEventListener('resize', updateHeaderTheme, { passive: true });
+
+  // Initial check
+  header?.classList.add('header-light');
+  setTimeout(updateHeaderTheme, 100);
+
+  // Toggle mobile menu
+  menuBtn?.addEventListener('click', () => {
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking a nav link
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

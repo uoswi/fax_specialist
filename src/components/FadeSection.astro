@@ -1,0 +1,44 @@
+---
+interface Props {
+  class?: string;
+  delay?: number;
+  id?: string;
+}
+
+const { class: className, delay = 0, id } = Astro.props;
+---
+
+<section class:list={['fade-section', className]} style={`--delay: ${delay}ms`} id={id}>
+  <slot />
+</section>
+
+<script>
+  const sections = document.querySelectorAll('.fade-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  .fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--delay);
+  }
+
+  .fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

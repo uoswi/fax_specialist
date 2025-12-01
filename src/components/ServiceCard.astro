@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon?: string;
+}
+
+const { title, description, href, icon } = Astro.props;
+
+const defaultIcon = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`;
+---
+
+<a
+  href={href}
+  class="group block bg-pearl p-8 rounded-lg border border-mist hover:border-indigo/30 hover:shadow-lg transition-all duration-300"
+>
+  <div class="w-12 h-12 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center mb-5 group-hover:bg-indigo group-hover:text-pearl transition-colors">
+    <Fragment set:html={icon || defaultIcon} />
+  </div>
+
+  <h3 class="font-headline text-h4 mb-3 text-obsidian group-hover:text-indigo transition-colors">
+    {title}
+  </h3>
+
+  <p class="text-steel mb-4 leading-relaxed">
+    {description}
+  </p>
+
+  <span class="inline-flex items-center gap-2 text-indigo font-medium text-small group-hover:gap-3 transition-all">
+    Learn more
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </span>
+</a>

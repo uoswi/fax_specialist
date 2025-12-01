@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+}
+
+const {
+  title,
+  description = "Enterprise fax consulting from a proven expert. One expert. Zero excuses. 100K+ customers served.",
+  hideHeader = false,
+  hideFooter = false,
+} = Astro.props;
+
+const siteTitle = "Fax Specialist";
+const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts: Fraunces (headlines) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{fullTitle}</title>
+
+    <!-- View Transitions for smooth page navigation -->
+    <ViewTransitions />
+
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    {!hideHeader && <Header />}
+
+    <main class="flex-1" transition:animate="slide">
+      <slot />
+    </main>
+
+    {!hideFooter && <Footer />}
+
+    <!-- Floating Contact Button -->
+    <a
+      id="floating-cta"
+      href="#contact"
+      class="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-5 py-3 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 opacity-0 translate-y-4 pointer-events-none"
+      style="background-color: #1E293B; color: #ffffff; font-family: 'Inter', system-ui, sans-serif;"
+      aria-label="Contact us"
+    >
+      Let's Talk
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+
+    <script>
+      // Floating CTA visibility logic
+      const floatingCta = document.getElementById('floating-cta');
+      const contactSection = document.getElementById('contact');
+
+      function updateFloatingCta() {
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const showThreshold = viewportHeight * 0.3;
+
+        // Get contact section position
+        let contactVisible = false;
+        if (contactSection) {
+          const contactRect = contactSection.getBoundingClientRect();
+          contactVisible = contactRect.top < viewportHeight && contactRect.bottom > 0;
+        }
+
+        // Show after 30% scroll, hide when contact section is visible
+        if (scrollY > showThreshold && !contactVisible) {
+          floatingCta?.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+          floatingCta?.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        } else {
+          floatingCta?.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+          floatingCta?.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      }
+
+      // Listen for scroll events
+      window.addEventListener('scroll', updateFloatingCta, { passive: true });
+      // Initial check
+      updateFloatingCta();
+    </script>
+  </body>
+</html>

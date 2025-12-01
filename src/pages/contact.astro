@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch to discuss your enterprise fax infrastructure needs. Free consultation, no obligations."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-slate to-obsidian py-20">
+    <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <p class="text-indigo-light font-medium text-small uppercase tracking-wider mb-3">
+        Get in Touch
+      </p>
+      <h1 class="font-headline text-h1 lg:text-display text-pearl mb-6">
+        Let's Talk
+      </h1>
+      <p class="text-body-lg text-steel max-w-2xl mx-auto">
+        Tell me about your fax infrastructure challenges. I'll respond personally within 24 hours
+        with an honest assessment—even if I'm not the right fit.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-[800px] mx-auto px-6">
+      <div class="bg-pearl p-8 lg:p-12 rounded-xl border border-mist shadow-lg">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-small font-medium text-obsidian mb-2">
+                Name <span class="text-rose-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian placeholder:text-steel/50 focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors"
+                placeholder="John Smith"
+              />
+            </div>
+
+            <!-- Company -->
+            <div>
+              <label for="company" class="block text-small font-medium text-obsidian mb-2">
+                Company <span class="text-rose-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                required
+                class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian placeholder:text-steel/50 focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors"
+                placeholder="Acme Healthcare"
+              />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-small font-medium text-obsidian mb-2">
+                Email <span class="text-rose-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian placeholder:text-steel/50 focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors"
+                placeholder="john@acmehealthcare.com"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-small font-medium text-obsidian mb-2">
+                Phone <span class="text-steel">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian placeholder:text-steel/50 focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors"
+                placeholder="(555) 123-4567"
+              />
+            </div>
+          </div>
+
+          <!-- Service Interest -->
+          <div>
+            <label for="service" class="block text-small font-medium text-obsidian mb-2">
+              What are you looking for help with?
+            </label>
+            <select
+              id="service"
+              name="service"
+              class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors"
+            >
+              <option value="">Select a service...</option>
+              <option value="on-premise">On-Premise Solutions</option>
+              <option value="cloud">Cloud Fax Solutions</option>
+              <option value="hybrid">Hybrid & Migration</option>
+              <option value="automation">Automation & Integration</option>
+              <option value="consulting">General Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-small font-medium text-obsidian mb-2">
+              Tell me about your situation <span class="text-rose-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              class="w-full px-4 py-3 rounded-md border border-mist bg-ivory text-obsidian placeholder:text-steel/50 focus:border-indigo focus:ring-2 focus:ring-indigo/20 transition-colors resize-none"
+              placeholder="What's your current fax setup? What challenges are you facing? What's your timeline?"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-indigo text-pearl px-8 py-4 rounded-md font-medium hover:bg-indigo-dark transition-colors flex items-center justify-center gap-2"
+          >
+            <span>Send Message</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+
+          <!-- Success Message (hidden by default) -->
+          <div id="success-message" class="hidden text-center py-8">
+            <div class="w-16 h-16 rounded-full bg-success/10 text-success flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="font-headline text-h3 mb-2">Message Sent!</h3>
+            <p class="text-steel">I'll get back to you within 24 hours.</p>
+          </div>
+
+          <!-- Error Message (hidden by default) -->
+          <div id="error-message" class="hidden text-center py-4">
+            <p class="text-rose-500">Something went wrong. Please try again or email directly.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Alternative Contact -->
+      <div class="mt-12 text-center">
+        <p class="text-steel mb-4">Prefer to reach out directly?</p>
+        <a
+          href="mailto:hello@faxspecialist.com"
+          class="text-indigo font-medium hover:text-indigo-dark transition-colors"
+        >
+          hello@faxspecialist.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section class="py-20 bg-pearl">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="font-headline text-h2 mb-12 text-center">What to Expect</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-indigo text-pearl flex items-center justify-center mx-auto mb-4 font-headline text-h3">
+            1
+          </div>
+          <h3 class="font-headline text-h4 mb-2">Quick Response</h3>
+          <p class="text-steel">I'll personally review your message and respond within 24 hours.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-indigo text-pearl flex items-center justify-center mx-auto mb-4 font-headline text-h3">
+            2
+          </div>
+          <h3 class="font-headline text-h4 mb-2">Discovery Call</h3>
+          <p class="text-steel">We'll schedule a 30-minute call to discuss your situation in detail.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-indigo text-pearl flex items-center justify-center mx-auto mb-4 font-headline text-h3">
+            3
+          </div>
+          <h3 class="font-headline text-h4 mb-2">Honest Assessment</h3>
+          <p class="text-steel">You'll get a straightforward recommendation—even if I'm not the right fit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const submitButton = form?.querySelector('button[type="submit"]');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Disable button and show loading state
+    if (submitButton) {
+      submitButton.setAttribute('disabled', 'true');
+      submitButton.innerHTML = '<span>Sending...</span>';
+    }
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMessage?.classList.remove('hidden');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      errorMessage?.classList.remove('hidden');
+      // Re-enable button
+      if (submitButton) {
+        submitButton.removeAttribute('disabled');
+        submitButton.innerHTML = '<span>Send Message</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>';
+      }
+    }
+  });
+</script>

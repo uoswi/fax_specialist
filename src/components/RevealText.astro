@@ -1,0 +1,35 @@
+---
+interface Props {
+  delay?: number;
+  class?: string;
+}
+
+const { delay = 0, class: className } = Astro.props;
+---
+
+<div class:list={['reveal-wrapper', className]} style={`--delay: ${delay}ms`}>
+  <div class="reveal-inner">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .reveal-wrapper {
+    overflow: hidden;
+    display: block;
+  }
+
+  .reveal-inner {
+    transform: translateY(100%);
+    opacity: 0;
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes reveal {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

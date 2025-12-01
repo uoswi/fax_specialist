@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('caseStudies');
+const whitepapers = await getCollection('whitepapers');
+
+const featuredCaseStudies = caseStudies
+  .filter(study => study.data.featured)
+  .sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime())
+  .slice(0, 3);
+
+const featuredWhitepapers = whitepapers
+  .filter(wp => wp.data.featured)
+  .sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime())
+  .slice(0, 2);
+---
+
+<BaseLayout
+  title="Resources"
+  description="Case studies, white papers, and guides for enterprise fax solutions. Real results from real implementations."
+>
+  <!-- Hero Section -->
+  <section class="bg-obsidian py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+        Resources & Insights
+      </h1>
+      <p class="text-xl text-silver max-w-3xl mx-auto">
+        Real case studies, practical guides, and in-depth analysis to help you make informed decisions about enterprise fax infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-display font-bold text-obsidian mb-2">Case Studies</h2>
+          <p class="text-graphite">Real results from real implementations</p>
+        </div>
+        <a href="/resources/case-studies" class="text-indigo hover:text-indigo-dark font-medium flex items-center gap-2">
+          View all case studies
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredCaseStudies.map(study => (
+          <a href={`/resources/case-studies/${study.id}`} class="group block bg-mist rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+            <div class="text-sm text-indigo font-medium mb-2">{study.data.industry}</div>
+            <h3 class="text-xl font-display font-semibold text-obsidian mb-3 group-hover:text-indigo transition-colors">
+              {study.data.title}
+            </h3>
+            <p class="text-graphite text-sm mb-4 line-clamp-2">{study.data.description}</p>
+
+            {study.data.metrics && (
+              <div class="flex gap-4 mt-auto">
+                {study.data.metrics.slice(0, 2).map(metric => (
+                  <div class="text-center">
+                    <div class="text-lg font-bold text-indigo">{metric.value}</div>
+                    <div class="text-xs text-graphite">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- White Papers Section -->
+  <section class="py-20 bg-mist">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-display font-bold text-obsidian mb-2">White Papers & Guides</h2>
+          <p class="text-graphite">In-depth analysis and practical frameworks</p>
+        </div>
+        <a href="/resources/white-papers" class="text-indigo hover:text-indigo-dark font-medium flex items-center gap-2">
+          View all white papers
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {featuredWhitepapers.map(paper => (
+          <a href={`/resources/white-papers/${paper.id}`} class="group block bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 bg-indigo/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-8 h-8 text-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-sm text-indigo font-medium mb-2">{paper.data.category}</div>
+                <h3 class="text-xl font-display font-semibold text-obsidian mb-3 group-hover:text-indigo transition-colors">
+                  {paper.data.title}
+                </h3>
+                <p class="text-graphite text-sm">{paper.data.description}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-obsidian">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-display font-bold text-white mb-6">
+        Need a Custom Analysis?
+      </h2>
+      <p class="text-xl text-silver mb-8">
+        Every organization is unique. Let's discuss your specific fax infrastructure challenges.
+      </p>
+      <a href="/contact" class="inline-flex items-center px-8 py-4 bg-indigo text-white font-semibold rounded-lg hover:bg-indigo-dark transition-colors">
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</BaseLayout>

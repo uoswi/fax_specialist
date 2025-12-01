@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const partners = [
+  {
+    name: "etherFAX",
+    category: "Cloud Fax Network",
+    description: "Secure, HIPAA-compliant cloud fax network with direct integration into major EHR systems. The gold standard for healthcare fax.",
+    capabilities: ["Direct EHR Integration", "Hybrid Deployments", "SEN Network", "T.38 Support"]
+  },
+  {
+    name: "FaxCore",
+    category: "On-Premise Solutions",
+    description: "Flexible on-premise fax server with strong API support and enterprise features. Great for organizations that need full control.",
+    capabilities: ["Windows Server", "Linux Support", "REST API", "Active Directory"]
+  },
+  {
+    name: "OpenText RightFax",
+    category: "Enterprise Fax Server",
+    description: "The industry standard for enterprise fax infrastructure. Deep integration with Microsoft Exchange, SAP, and healthcare systems.",
+    capabilities: ["Exchange Integration", "SAP Connector", "High Availability", "Cloud Gateway"]
+  },
+  {
+    name: "Retarus",
+    category: "Global Cloud Fax",
+    description: "European-headquartered cloud fax provider with strong global presence and compliance certifications for regulated industries.",
+    capabilities: ["Global Coverage", "GDPR Compliant", "Hybrid Options", "Multi-Channel"]
+  },
+  {
+    name: "eFax Enterprise",
+    category: "High-Volume Cloud",
+    description: "One of the original cloud fax providers with broad compatibility and established enterprise features.",
+    capabilities: ["Email to Fax", "API Access", "Number Porting", "Global Numbers"]
+  },
+  {
+    name: "Consensus Cloud",
+    category: "Healthcare Cloud Fax",
+    description: "Healthcare-focused cloud fax solutions with deep EHR integrations and compliance expertise.",
+    capabilities: ["Epic Integration", "Cerner Connect", "HITRUST Certified", "Interoperability"]
+  }
+];
+---
+
+<BaseLayout
+  title="Partners"
+  description="I work with all major enterprise fax vendors. Vendor-agnostic recommendations based on what's best for your organization."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-slate to-obsidian py-20 lg:py-28">
+    <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <p class="text-indigo-light font-medium text-small uppercase tracking-wider mb-3">
+        Technology Partners
+      </p>
+      <h1 class="font-headline text-h1 lg:text-display text-pearl mb-6">
+        Vendor Agnostic. Results Focused.
+      </h1>
+      <p class="text-body-lg text-steel max-w-2xl mx-auto">
+        I work with all major fax vendors and platforms. My recommendations are based on
+        what's best for your organization—not which vendor pays me the highest commission.
+      </p>
+    </div>
+  </section>
+
+  <!-- Partners Grid -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {partners.map((partner) => (
+          <div class="bg-pearl p-8 rounded-lg border border-mist hover:border-indigo/30 hover:shadow-lg transition-all">
+            <div class="mb-4">
+              <span class="text-xs font-medium text-indigo uppercase tracking-wider">
+                {partner.category}
+              </span>
+            </div>
+            <h3 class="font-headline text-h3 mb-3 text-obsidian">{partner.name}</h3>
+            <p class="text-steel mb-6">{partner.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {partner.capabilities.map((cap) => (
+                <span class="bg-indigo/10 text-indigo text-xs font-medium px-2 py-1 rounded">
+                  {cap}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Vendor Agnostic -->
+  <section class="py-20 bg-pearl">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="font-headline text-h1 mb-8 text-center">Why Vendor Agnostic Matters</h2>
+      <div class="space-y-8">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-headline text-h4 mb-2">Unbiased Recommendations</h3>
+            <p class="text-steel">
+              Most consultants push whatever vendor pays them the most. I recommend the solution
+              that's actually best for your specific situation, budget, and requirements.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-headline text-h4 mb-2">Flexibility to Switch</h3>
+            <p class="text-steel">
+              Because I work with all the major players, I can help you migrate between vendors
+              if your needs change—without starting from scratch with a new consultant.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo/10 text-indigo flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-headline text-h4 mb-2">Competitive Pricing</h3>
+            <p class="text-steel">
+              When vendors know you have options, you get better pricing. I help you negotiate
+              enterprise agreements that actually favor you, not the vendor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <h2 class="font-headline text-h2 mb-4">Not sure which vendor is right for you?</h2>
+      <p class="text-body-lg text-steel mb-8 max-w-xl mx-auto">
+        Let's discuss your requirements. I'll give you an honest assessment of which platforms
+        make sense for your situation—and which ones to avoid.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 bg-indigo text-pearl px-8 py-4 rounded-sm font-medium hover:bg-indigo-dark transition-colors"
+      >
+        Get a Vendor Recommendation
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
