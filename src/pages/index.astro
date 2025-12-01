@@ -14,19 +14,16 @@ const featuredStudies = caseStudies
 
 <BaseLayout title="Home">
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
-    <!-- Background Elements -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 50%, #F8FAFC 100%);">
+    <!-- Background Elements - Refined Mesh Gradient -->
     <div class="absolute inset-0 overflow-hidden">
-      <!-- Animated gradient orbs -->
-      <div class="absolute top-0 right-0 w-[800px] h-[800px]">
-        <div class="absolute top-10 right-10 w-[500px] h-[500px] rounded-full blur-3xl opacity-40 animate-pulse" style="background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%);"></div>
-        <div class="absolute top-40 right-40 w-72 h-72 rounded-full blur-2xl opacity-30" style="background: linear-gradient(135deg, #6366F1 0%, #818CF8 100%);"></div>
-      </div>
-      <div class="absolute bottom-0 left-0 w-[600px] h-[600px]">
-        <div class="absolute bottom-10 left-10 w-80 h-80 rounded-full blur-3xl opacity-25" style="background: linear-gradient(135deg, #C7D2FE 0%, #E0E7FF 100%);"></div>
-      </div>
-      <!-- Subtle grid -->
-      <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%236366F1&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+      <!-- Sophisticated layered gradients -->
+      <div class="absolute top-0 right-0 w-full h-full" style="background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(224, 231, 255, 0.5) 0%, transparent 50%);"></div>
+      <div class="absolute bottom-0 left-0 w-full h-full" style="background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(199, 210, 254, 0.3) 0%, transparent 40%);"></div>
+      <!-- Subtle accent glow -->
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20" style="background: linear-gradient(135deg, #818CF8 0%, #A5B4FC 100%);"></div>
+      <!-- Refined dot pattern -->
+      <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #6366F1 1px, transparent 0); background-size: 32px 32px;"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
@@ -148,11 +145,13 @@ const featuredStudies = caseStudies
   </section>
 
   <!-- Stats Section -->
-  <section data-theme="dark" class="relative py-20 overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);">
-    <!-- Decorative elements -->
+  <section data-theme="dark" class="relative py-20 overflow-hidden" style="background: linear-gradient(180deg, #0F172A 0%, #111827 50%, #0F172A 100%);">
+    <!-- Refined decorative elements -->
     <div class="absolute inset-0">
-      <div class="absolute top-0 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-10" style="background: #6366F1;"></div>
-      <div class="absolute bottom-0 right-1/4 w-48 h-48 rounded-full blur-3xl opacity-10" style="background: #818CF8;"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 100% 80% at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 60% at 20% 100%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);"></div>
+      <!-- Subtle line grid -->
+      <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,8 +188,10 @@ const featuredStudies = caseStudies
   </section>
 
   <!-- Problem/Solution Section -->
-  <section id="about" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="about" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);">
+    <!-- Subtle radial accent -->
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(238, 242, 255, 0.4) 0%, transparent 50%);"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style="background-color: #F3F4F6; color: #4B5563;">
           The Problem
@@ -292,8 +293,11 @@ const featuredStudies = caseStudies
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-24 lg:py-32 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="services" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);">
+    <!-- Subtle background texture -->
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 100% 50% at 50% 0%, rgba(224, 231, 255, 0.3) 0%, transparent 50%);"></div>
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, #64748B 1px, transparent 0); background-size: 24px 24px;"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style="background-color: #EEF2FF; color: #6366F1;">
           Services
@@ -403,13 +407,14 @@ const featuredStudies = caseStudies
   )}
 
   <!-- Contact Section -->
-  <section id="contact" data-theme="dark" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);">
-    <!-- Decorative Elements -->
+  <section id="contact" data-theme="dark" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(180deg, #0F172A 0%, #111827 50%, #0F172A 100%);">
+    <!-- Refined Decorative Elements -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20" style="background: #6366F1;"></div>
-      <div class="absolute bottom-0 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15" style="background: #818CF8;"></div>
-      <!-- Grid pattern -->
-      <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%239C92AC&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+      <!-- Sophisticated gradient overlays -->
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 40% at 30% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 50%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 50% 50% at 80% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);"></div>
+      <!-- Refined line grid -->
+      <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 80px 80px;"></div>
     </div>
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

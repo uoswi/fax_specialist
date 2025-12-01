@@ -395,28 +395,38 @@ a:hover {
 .btn-secondary-premium {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.btn-secondary-premium::after {
+.btn-secondary-premium::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
   opacity: 0;
-  transition: opacity 0.3s ease;
   z-index: -1;
+  border-radius: inherit;
+  transition: opacity 0.25s ease;
 }
 
 .btn-secondary-premium:hover {
-  color: white;
+  color: white !important;
   border-color: transparent;
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
 }
 
-.btn-secondary-premium:hover::after {
+.btn-secondary-premium:hover::before {
   opacity: 1;
+}
+
+.btn-secondary-premium svg {
+  transition: color 0.25s ease;
+}
+
+.btn-secondary-premium:hover svg {
+  color: white;
 }
 
 /* Arrow animation on buttons */
