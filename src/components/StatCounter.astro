@@ -9,14 +9,14 @@ interface Props {
 const { end, suffix = '', label, icon } = Astro.props;
 ---
 
-<div class="stat-counter group" data-count={end} data-suffix={suffix}>
-  <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(129, 140, 248, 0.1) 100%); border: 1px solid rgba(99, 102, 241, 0.3);">
+<div class="stat-counter group text-center" data-count={end} data-suffix={suffix}>
+  <div class="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 mx-auto transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(129, 140, 248, 0.1) 100%); border: 1px solid rgba(99, 102, 241, 0.3);">
     <slot name="icon" />
   </div>
-  <div class="stat-value text-4xl lg:text-5xl font-display font-bold mb-2" style="background: linear-gradient(135deg, #FFFFFF 0%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+  <div class="stat-value text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-1 sm:mb-2" style="background: linear-gradient(135deg, #FFFFFF 0%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
     <span class="stat-number">0</span><span class="stat-suffix">{suffix}</span>
   </div>
-  <div class="text-sm text-gray-400 uppercase tracking-wider">{label}</div>
+  <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">{label}</div>
 </div>
 
 <script>

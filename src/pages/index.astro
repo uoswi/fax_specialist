@@ -14,60 +14,54 @@ const featuredStudies = caseStudies
 
 <BaseLayout title="Home">
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 50%, #F8FAFC 100%);">
-    <!-- Background Elements - Refined Mesh Gradient -->
-    <div class="absolute inset-0 overflow-hidden">
-      <!-- Sophisticated layered gradients -->
-      <div class="absolute top-0 right-0 w-full h-full" style="background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(224, 231, 255, 0.5) 0%, transparent 50%);"></div>
-      <div class="absolute bottom-0 left-0 w-full h-full" style="background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(199, 210, 254, 0.3) 0%, transparent 40%);"></div>
-      <!-- Subtle accent glow -->
-      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20" style="background: linear-gradient(135deg, #818CF8 0%, #A5B4FC 100%);"></div>
-      <!-- Refined dot pattern -->
-      <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, #6366F1 1px, transparent 0); background-size: 32px 32px;"></div>
-    </div>
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden" style="background: #FFFFFF;">
+    <!-- Clean background -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #EEF2FF 100%);"></div>
+    <!-- Subtle grid -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#CBD5E1 1px, transparent 1px), linear-gradient(90deg, #CBD5E1 1px, transparent 1px); background-size: 48px 48px;"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 sm:py-24 lg:py-32">
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <!-- Left Column - Content -->
-        <div class="lg:col-span-6 xl:col-span-5">
+        <div class="lg:col-span-6 xl:col-span-5 text-center lg:text-left">
           <!-- Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-in-up" style="background-color: #EEF2FF; border: 1px solid #E0E7FF; animation-delay: 0ms;">
-            <svg class="w-4 h-4" style="color: #6366F1;" fill="currentColor" viewBox="0 0 20 20">
+          <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-6 sm:mb-8 animate-fade-in-up" style="background-color: #EEF2FF; border: 1px solid #E0E7FF; animation-delay: 0ms;">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" style="color: #6366F1;" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
             </svg>
-            <span class="text-sm font-medium" style="color: #4338CA;">25+ Years Enterprise Fax Experience</span>
+            <span class="text-xs sm:text-sm font-medium" style="color: #4338CA;">25+ Years Enterprise Fax Experience</span>
           </div>
 
           <!-- Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-display font-bold tracking-tight text-gray-900 mb-8">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-display font-bold tracking-tight text-gray-900 mb-5 sm:mb-8">
             <RevealText delay={100}><span class="block">Enterprise Fax.</span></RevealText>
             <RevealText delay={200}><span class="block" style="color: #6366F1;">One Expert.</span></RevealText>
             <RevealText delay={300}><span class="block">Zero Excuses.</span></RevealText>
           </h1>
 
-          <p class="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 400ms;">
+          <p class="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-10 leading-relaxed animate-fade-in-up max-w-lg mx-auto lg:mx-0" style="animation-delay: 400ms;">
             I'm the single point of accountability for your mission-critical fax infrastructure. No vendor runaround. No offshore support. Just results.
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 500ms;">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up justify-center lg:justify-start" style="animation-delay: 500ms;">
             <a
               href="#contact"
-              class="btn-premium group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg"
+              class="btn-premium group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold text-base sm:text-lg"
               style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: #ffffff; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);"
             >
               Let's Talk
-              <svg class="btn-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="btn-arrow w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
             <a
               href="#services"
-              class="btn-secondary-premium group inline-flex items-center justify-center gap-3 bg-white text-gray-700 border-2 border-gray-200 px-8 py-4 rounded-xl font-semibold text-lg"
+              class="btn-secondary-premium group inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-gray-700 border-2 border-gray-200 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold text-base sm:text-lg"
               style="color: #374151;"
             >
               View Services
-              <svg class="btn-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="btn-arrow w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </a>
@@ -145,17 +139,12 @@ const featuredStudies = caseStudies
   </section>
 
   <!-- Stats Section -->
-  <section data-theme="dark" class="relative py-20 overflow-hidden" style="background: linear-gradient(180deg, #0F172A 0%, #111827 50%, #0F172A 100%);">
-    <!-- Refined decorative elements -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 100% 80% at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 60% at 20% 100%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);"></div>
-      <!-- Subtle line grid -->
-      <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
-    </div>
+  <section data-theme="dark" class="relative py-12 sm:py-16 lg:py-20 overflow-hidden" style="background: #0F172A;">
+    <!-- Clean grid overlay -->
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 48px 48px;"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
         <StatCounter end={100000} suffix="+" label="Customers Served">
           <svg slot="icon" class="w-8 h-8" style="color: #818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -163,13 +152,13 @@ const featuredStudies = caseStudies
         </StatCounter>
 
         <div class="text-center group">
-          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 mx-auto transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(129, 140, 248, 0.1) 100%); border: 1px solid rgba(99, 102, 241, 0.3);">
-            <svg class="w-8 h-8" style="color: #818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 mx-auto transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(129, 140, 248, 0.1) 100%); border: 1px solid rgba(99, 102, 241, 0.3);">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" style="color: #818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <div class="text-4xl lg:text-5xl font-display font-bold mb-2" style="background: linear-gradient(135deg, #FFFFFF 0%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">eFax</div>
-          <div class="text-sm text-gray-400 uppercase tracking-wider">Enterprise Exit</div>
+          <div class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-bold mb-1 sm:mb-2" style="background: linear-gradient(135deg, #FFFFFF 0%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">eFax</div>
+          <div class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Enterprise Exit</div>
         </div>
 
         <StatCounter end={10000} suffix="+" label="Active Clients">
@@ -188,57 +177,55 @@ const featuredStudies = caseStudies
   </section>
 
   <!-- Problem/Solution Section -->
-  <section id="about" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);">
-    <!-- Subtle radial accent -->
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(238, 242, 255, 0.4) 0%, transparent 50%);"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style="background-color: #F3F4F6; color: #4B5563;">
+  <section id="about" class="relative py-16 sm:py-20 lg:py-32 overflow-hidden" style="background: #FFFFFF;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 sm:mb-16">
+        <span class="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4" style="background-color: #F3F4F6; color: #4B5563;">
           The Problem
         </span>
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4">Sound Familiar?</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-3 sm:mb-4">Sound Familiar?</h2>
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Enterprise fax shouldn't be this hard. Here's what I hear from IT leaders every week.
         </p>
       </div>
 
       <!-- Problems -->
-      <div class="grid md:grid-cols-3 gap-6 mb-20">
-        <div class="bg-white p-8 rounded-2xl border border-red-100 shadow-sm">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: #FEF2F2; color: #EF4444;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-20">
+        <div class="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl border border-red-100 shadow-sm">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: #FEF2F2; color: #EF4444;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Vendor Runaround</h3>
-          <p class="text-gray-600">Tired of being bounced between sales, support, and account managers who don't know your setup?</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Vendor Runaround</h3>
+          <p class="text-sm sm:text-base text-gray-600">Tired of being bounced between sales, support, and account managers who don't know your setup?</p>
         </div>
-        <div class="bg-white p-8 rounded-2xl border border-orange-100 shadow-sm">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: #FFF7ED; color: #F97316;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl border border-orange-100 shadow-sm">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: #FFF7ED; color: #F97316;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Offshore Support</h3>
-          <p class="text-gray-600">Fed up with support teams that can't understand your compliance requirements or technical needs?</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Offshore Support</h3>
+          <p class="text-sm sm:text-base text-gray-600">Fed up with support teams that can't understand your compliance requirements or technical needs?</p>
         </div>
-        <div class="bg-white p-8 rounded-2xl border border-amber-100 shadow-sm">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: #FFFBEB; color: #F59E0B;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl border border-amber-100 shadow-sm sm:col-span-2 md:col-span-1">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: #FFFBEB; color: #F59E0B;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">No Accountability</h3>
-          <p class="text-gray-600">Struggling to find someone who will actually own the problem when faxes fail at 2 AM?</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">No Accountability</h3>
+          <p class="text-sm sm:text-base text-gray-600">Struggling to find someone who will actually own the problem when faxes fail at 2 AM?</p>
         </div>
       </div>
 
       <!-- Arrow -->
-      <div class="flex justify-center mb-20">
+      <div class="flex justify-center mb-12 sm:mb-20">
         <div class="flex flex-col items-center">
-          <div class="w-px h-16" style="background: linear-gradient(to bottom, #E5E7EB, #6366F1);"></div>
-          <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg" style="background-color: #6366F1;">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-px h-10 sm:h-16" style="background: linear-gradient(to bottom, #E5E7EB, #6366F1);"></div>
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg" style="background-color: #6366F1;">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
@@ -246,123 +233,122 @@ const featuredStudies = caseStudies
       </div>
 
       <!-- Solution Header -->
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style="background-color: #EEF2FF; color: #6366F1;">
+      <div class="text-center mb-10 sm:mb-16">
+        <span class="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4" style="background-color: #EEF2FF; color: #6366F1;">
           The Solution
         </span>
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4">Here's How I'm Different</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-3 sm:mb-4">Here's How I'm Different</h2>
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           25+ years of enterprise fax experience, distilled into one direct relationship.
         </p>
       </div>
 
       <!-- Solutions -->
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="relative p-8 rounded-2xl border shadow-sm" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
-          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg" style="background-color: #6366F1; color: #ffffff;">1</div>
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        <div class="relative p-5 sm:p-8 rounded-xl sm:rounded-2xl border shadow-sm" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
+          <div class="absolute -top-2.5 -left-2.5 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shadow-lg" style="background-color: #6366F1; color: #ffffff;">1</div>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">One Expert</h3>
-          <p class="text-gray-600">Direct access to someone who's built, scaled, and sold fax infrastructure. No layers, no runaround.</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">One Expert</h3>
+          <p class="text-sm sm:text-base text-gray-600">Direct access to someone who's built, scaled, and sold fax infrastructure. No layers, no runaround.</p>
         </div>
-        <div class="relative p-8 rounded-2xl border shadow-sm" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
-          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg" style="background-color: #6366F1; color: #ffffff;">2</div>
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative p-5 sm:p-8 rounded-xl sm:rounded-2xl border shadow-sm" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
+          <div class="absolute -top-2.5 -left-2.5 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shadow-lg" style="background-color: #6366F1; color: #ffffff;">2</div>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Deep Expertise</h3>
-          <p class="text-gray-600">HIPAA, SOC2, enterprise compliance — I've done it for banks, hospitals, and government agencies.</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Deep Expertise</h3>
+          <p class="text-sm sm:text-base text-gray-600">HIPAA, SOC2, enterprise compliance — I've done it for banks, hospitals, and government agencies.</p>
         </div>
-        <div class="relative p-8 rounded-2xl border shadow-sm" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
-          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg" style="background-color: #6366F1; color: #ffffff;">3</div>
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative p-5 sm:p-8 rounded-xl sm:rounded-2xl border shadow-sm sm:col-span-2 md:col-span-1" style="background: linear-gradient(to bottom right, #EEF2FF, #FFFFFF); border-color: #E0E7FF;">
+          <div class="absolute -top-2.5 -left-2.5 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shadow-lg" style="background-color: #6366F1; color: #ffffff;">3</div>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Results, Not Promises</h3>
-          <p class="text-gray-600">I've helped enterprises cut fax costs by 60% while improving reliability. Let's do it for you.</p>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Results, Not Promises</h3>
+          <p class="text-sm sm:text-base text-gray-600">I've helped enterprises cut fax costs by 60% while improving reliability. Let's do it for you.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);">
-    <!-- Subtle background texture -->
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 100% 50% at 50% 0%, rgba(224, 231, 255, 0.3) 0%, transparent 50%);"></div>
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, #64748B 1px, transparent 0); background-size: 24px 24px;"></div>
+  <section id="services" class="relative py-16 sm:py-20 lg:py-32 overflow-hidden" style="background: #F8FAFC;">
+    <!-- Subtle grid -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#CBD5E1 1px, transparent 1px), linear-gradient(90deg, #CBD5E1 1px, transparent 1px); background-size: 48px 48px;"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style="background-color: #EEF2FF; color: #6366F1;">
+      <div class="text-center mb-10 sm:mb-16">
+        <span class="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4" style="background-color: #EEF2FF; color: #6366F1;">
           Services
         </span>
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-4">Enterprise Fax Solutions</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-gray-900 mb-3 sm:mb-4">Enterprise Fax Solutions</h2>
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           From legacy migrations to cloud-native deployments, I help enterprises modernize their fax infrastructure.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        <div class="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">On-Premise Solutions</h3>
-          <p class="text-gray-600 mb-6">Legacy modernization and in-house fax infrastructure for security-first organizations.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">RightFax expertise</span>
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">Full data control</span>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">On-Premise Solutions</h3>
+          <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Legacy modernization and in-house fax infrastructure for security-first organizations.</p>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">RightFax expertise</span>
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">Full data control</span>
           </div>
         </div>
 
-        <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Cloud Fax Solutions</h3>
-          <p class="text-gray-600 mb-6">Scalable, no-hardware fax infrastructure with global reach for modern enterprises.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">etherFAX certified</span>
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">99.9% uptime</span>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Cloud Fax Solutions</h3>
+          <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Scalable, no-hardware fax infrastructure with global reach for modern enterprises.</p>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">etherFAX certified</span>
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">99.9% uptime</span>
           </div>
         </div>
 
-        <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Hybrid & Migration</h3>
-          <p class="text-gray-600 mb-6">Smooth transitions from legacy to cloud with phased migration plans.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">Zero downtime</span>
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">Risk mitigation</span>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Hybrid & Migration</h3>
+          <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Smooth transitions from legacy to cloud with phased migration plans.</p>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">Zero downtime</span>
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">Risk mitigation</span>
           </div>
         </div>
 
-        <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.1); color: #6366F1;">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Automation & Integration</h3>
-          <p class="text-gray-600 mb-6">Workflow automation, API integrations, and custom triggers for your systems.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">EHR/EMR integration</span>
-            <span class="px-3 py-1 rounded-full text-sm" style="background-color: #F3F4F6; color: #4B5563;">Custom APIs</span>
+          <h3 class="text-lg sm:text-xl font-display font-semibold text-gray-900 mb-2 sm:mb-3">Automation & Integration</h3>
+          <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Workflow automation, API integrations, and custom triggers for your systems.</p>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">EHR/EMR integration</span>
+            <span class="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm" style="background-color: #F3F4F6; color: #4B5563;">Custom APIs</span>
           </div>
         </div>
       </div>
@@ -407,27 +393,27 @@ const featuredStudies = caseStudies
   )}
 
   <!-- Contact Section -->
-  <section id="contact" data-theme="dark" class="relative py-24 lg:py-32 overflow-hidden" style="background: #0F172A;">
-    <!-- Clean subtle gradient overlay -->
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 41, 59, 0.8) 0%, transparent 70%);"></div>
+  <section id="contact" data-theme="dark" class="relative py-16 sm:py-20 lg:py-32 overflow-hidden" style="background: #0F172A;">
+    <!-- Clean grid overlay -->
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 48px 48px;"></div>
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <!-- Left Column - Text -->
-        <div>
-          <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6" style="background-color: rgba(99, 102, 241, 0.2); color: #818CF8; border: 1px solid rgba(99, 102, 241, 0.3);">
+        <div class="text-center lg:text-left">
+          <span class="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6" style="background-color: rgba(99, 102, 241, 0.2); color: #818CF8; border: 1px solid rgba(99, 102, 241, 0.3);">
             Get in Touch
           </span>
-          <h2 class="text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 leading-tight">
             <span class="text-white">Ready to Simplify Your</span><br/>
             <span style="background: linear-gradient(135deg, #818CF8 0%, #A78BFA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Fax Infrastructure?</span>
           </h2>
-          <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+          <p class="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 leading-relaxed">
             Let's discuss your challenges. No sales pitch, just a conversation about what you need.
           </p>
 
           <!-- Trust indicators -->
-          <div class="space-y-4">
+          <div class="space-y-3 sm:space-y-4 hidden sm:block">
             <div class="flex items-center gap-3 text-gray-300">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: rgba(99, 102, 241, 0.15);">
                 <svg class="w-5 h-5" style="color: #818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -444,7 +430,7 @@ const featuredStudies = caseStudies
               </div>
               <span>No obligation consultation</span>
             </div>
-            <div class="flex items-center gap-3 text-gray-300">
+            <div class="flex items-center gap-3 text-gray-300 justify-center lg:justify-start">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: rgba(99, 102, 241, 0.15);">
                 <svg class="w-5 h-5" style="color: #818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -458,64 +444,64 @@ const featuredStudies = caseStudies
         <!-- Right Column - Form Card -->
         <div class="relative">
           <!-- Form Card -->
-          <div class="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-2xl">
+          <div class="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-white/10 shadow-2xl">
             <!-- Glow effect -->
-            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-50"></div>
+            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl sm:rounded-2xl blur-xl opacity-50"></div>
 
-            <form class="relative space-y-5">
-              <div class="grid grid-cols-2 gap-4">
+            <form class="relative space-y-4 sm:space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+                  <label for="name" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">Name *</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all"
+                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="John Smith"
                   />
                 </div>
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                  <label for="email" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">Email *</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all"
+                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="john@company.com"
                   />
                 </div>
               </div>
               <div>
-                <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company</label>
+                <label for="company" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">Company</label>
                 <input
                   type="text"
                   id="company"
                   name="company"
-                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all"
+                  class="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all text-sm sm:text-base"
                   placeholder="Your company name"
                 />
               </div>
               <div>
-                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">How can I help? *</label>
+                <label for="message" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">How can I help? *</label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="4"
+                  rows="3"
                   required
-                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all resize-none"
+                  class="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent transition-all resize-none text-sm sm:text-base"
                   placeholder="Tell me about your fax challenges..."
                 ></textarea>
               </div>
               <button
                 type="submit"
-                class="btn-premium w-full py-4 rounded-xl font-semibold text-lg group"
+                class="btn-premium w-full py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg group"
                 style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: #ffffff; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);"
               >
                 <span class="flex items-center justify-center gap-2">
                   Send Message
-                  <svg class="btn-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="btn-arrow w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
