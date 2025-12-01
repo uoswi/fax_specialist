@@ -12,13 +12,13 @@ const navLinks = [
       <!-- Logo -->
       <a href="#home" class="flex items-center gap-2 sm:gap-3 group">
         <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center transition-transform group-hover:scale-105" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
-          <span class="text-white font-bold text-sm sm:text-base">F</span>
+          <span class="text-white font-bold text-xs sm:text-sm">FF</span>
         </div>
         <div class="hidden sm:flex flex-col">
           <span class="logo-text font-display text-base sm:text-lg font-bold leading-tight transition-colors">
-            Fax Specialist
+            Farjad Fani
           </span>
-          <span class="logo-subtitle text-[9px] sm:text-[10px] uppercase tracking-wider -mt-0.5 transition-colors">Enterprise Consulting</span>
+          <span class="logo-subtitle text-[9px] sm:text-[10px] uppercase tracking-wider -mt-0.5 transition-colors">Enterprise Fax Consulting</span>
         </div>
       </a>
 
@@ -71,6 +71,20 @@ const navLinks = [
   <!-- Mobile Navigation - Premium Design -->
   <div id="mobile-menu" class="lg:hidden hidden mx-3 sm:mx-4 mt-2">
     <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
+      <!-- Name Header -->
+      <div class="px-5 pt-5 pb-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+            <span class="text-white font-bold text-base">FF</span>
+          </div>
+          <div>
+            <span class="font-display text-lg font-bold text-gray-900 block">Farjad Fani</span>
+            <span class="text-xs text-gray-500">Enterprise Fax Consultant</span>
+          </div>
+        </div>
+      </div>
+      <!-- Divider -->
+      <div class="mx-5 h-px bg-gray-100"></div>
       <!-- Nav Links -->
       <div class="p-2">
         {navLinks.map((link) => (
