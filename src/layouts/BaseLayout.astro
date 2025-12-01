@@ -7,19 +7,51 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
   hideHeader?: boolean;
   hideFooter?: boolean;
 }
 
 const {
   title,
-  description = "Enterprise fax consulting from a proven expert. One expert. Zero excuses. 100K+ customers served.",
+  description = "Enterprise fax expert with 25+ years experience. Built & sold 100K+ customers to eFax. Now helping healthcare, finance & government modernize fax infrastructure. One expert. Zero excuses.",
+  image = "https://pub-8328ea6bb04349d1a5a4d426c5086e61.r2.dev/farjad-fani.png",
   hideHeader = false,
   hideFooter = false,
 } = Astro.props;
 
-const siteTitle = "Fax Specialist";
-const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
+const siteTitle = "Farjad Fani | Enterprise Fax Consultant";
+const siteName = "Farjad Fani";
+const siteUrl = "https://faxspecialist.com";
+const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteName}`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Farjad Fani - Enterprise Fax Consulting",
+  "description": description,
+  "url": siteUrl,
+  "logo": image,
+  "image": image,
+  "priceRange": "$$$$",
+  "serviceType": ["Enterprise Fax Solutions", "HIPAA Compliant Fax", "Cloud Fax Migration", "Fax Infrastructure Consulting"],
+  "areaServed": "Worldwide",
+  "founder": {
+    "@type": "Person",
+    "name": "Farjad Fani",
+    "image": image,
+    "jobTitle": "Enterprise Fax Consultant",
+    "description": "25+ years in enterprise fax. Built onlinefaxes.com and sold 100,000+ customers to eFax. Now serving 10,000+ active clients in healthcare, finance, and government.",
+    "knowsAbout": ["Enterprise Fax", "HIPAA Compliance", "Cloud Fax", "Healthcare IT", "Fax Integration", "RightFax", "FaxCore", "Etherfax"]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "100000"
+  }
+};
 ---
 
 <!doctype html>
@@ -28,6 +60,10 @@ const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="keywords" content="enterprise fax, HIPAA fax, cloud fax, fax consultant, healthcare fax, RightFax, FaxCore, Etherfax, fax migration, fax integration, secure fax, SOC2 fax" />
+    <meta name="author" content="Farjad Fani" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -40,16 +76,26 @@ const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
       rel="stylesheet"
     />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <title>{fullTitle}</title>
 
