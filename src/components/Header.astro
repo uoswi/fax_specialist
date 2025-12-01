@@ -2,23 +2,23 @@
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
-  { label: 'Results', href: '#results' },
+  { label: 'Contact', href: '#contact' },
 ];
 ---
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="mx-3 sm:mx-4 lg:mx-8 mt-3 sm:mt-4">
-    <nav class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 sm:h-14 lg:h-16 flex items-center justify-between rounded-xl sm:rounded-2xl transition-all duration-300 header-nav">
-      <!-- Logo -->
+    <nav class="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-14 lg:h-16 flex items-center justify-between rounded-xl sm:rounded-2xl transition-all duration-300 header-nav">
+      <!-- Logo - Always visible -->
       <a href="#home" class="flex items-center gap-2 sm:gap-3 group">
-        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center transition-transform group-hover:scale-105" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+        <div class="w-9 h-9 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
           <span class="text-white font-bold text-xs sm:text-sm">FF</span>
         </div>
-        <div class="hidden sm:flex flex-col">
+        <div class="flex flex-col">
           <span class="logo-text font-display text-base sm:text-lg font-bold leading-tight transition-colors">
             Farjad Fani
           </span>
-          <span class="logo-subtitle text-[9px] sm:text-[10px] uppercase tracking-wider -mt-0.5 transition-colors">Enterprise Fax Consulting</span>
+          <span class="logo-subtitle text-[8px] sm:text-[10px] uppercase tracking-wider -mt-0.5 transition-colors hidden sm:block">Enterprise Fax Consulting</span>
         </div>
       </a>
 
@@ -37,7 +37,7 @@ const navLinks = [
         </div>
       </div>
 
-      <!-- CTA Button -->
+      <!-- CTA Button - Desktop -->
       <div class="hidden lg:block">
         <a
           href="#contact"
@@ -54,7 +54,7 @@ const navLinks = [
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="mobile-btn lg:hidden p-2 sm:p-2.5 rounded-lg sm:rounded-xl transition-colors"
+        class="mobile-btn lg:hidden w-9 h-9 flex items-center justify-center rounded-xl transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -68,47 +68,30 @@ const navLinks = [
     </nav>
   </div>
 
-  <!-- Mobile Navigation - Premium Design -->
+  <!-- Mobile Navigation - Clean Minimal Design -->
   <div id="mobile-menu" class="lg:hidden hidden mx-3 sm:mx-4 mt-2">
-    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
-      <!-- Name Header -->
-      <div class="px-5 pt-5 pb-3">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
-            <span class="text-white font-bold text-base">FF</span>
-          </div>
-          <div>
-            <span class="font-display text-lg font-bold text-gray-900 block">Farjad Fani</span>
-            <span class="text-xs text-gray-500">Enterprise Fax Consultant</span>
-          </div>
-        </div>
-      </div>
-      <!-- Divider -->
-      <div class="mx-5 h-px bg-gray-100"></div>
-      <!-- Nav Links -->
-      <div class="p-2">
+    <div class="mobile-menu-container rounded-xl overflow-hidden" style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+      <!-- Nav Links - Horizontal Pills -->
+      <div class="p-3 flex flex-wrap gap-2">
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="flex items-center gap-3 py-4 px-5 rounded-xl font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors mobile-nav-link"
+            class="mobile-nav-link flex-1 min-w-[80px] text-center py-3 px-4 rounded-lg font-medium text-sm transition-all"
             style="font-family: 'Inter', system-ui, sans-serif;"
           >
-            <span class="w-2 h-2 rounded-full bg-indigo-500/20"></span>
             {link.label}
           </a>
         ))}
       </div>
-      <!-- Divider -->
-      <div class="mx-5 h-px bg-gray-100"></div>
       <!-- CTA -->
-      <div class="p-3">
+      <div class="px-3 pb-3">
         <a
           href="#contact"
-          class="flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-base transition-all mobile-nav-link"
+          class="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-semibold text-sm transition-all mobile-nav-link"
           style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: #ffffff; font-family: 'Inter', system-ui, sans-serif; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);"
         >
           Let's Talk
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -126,7 +109,7 @@ const navLinks = [
 
   /* Light mode (default - over light backgrounds) */
   .header-light .header-nav {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
   }
@@ -154,11 +137,32 @@ const navLinks = [
 
   .header-light .mobile-btn {
     color: #4B5563;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .header-light .mobile-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .header-light .mobile-menu-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-light .mobile-nav-link {
+    color: #374151;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .header-light .mobile-nav-link:hover,
+  .header-light .mobile-nav-link:active {
+    background: rgba(0, 0, 0, 0.06);
   }
 
   /* Dark mode (over dark backgrounds like stats, contact) */
   .header-dark .header-nav {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   }
@@ -186,10 +190,28 @@ const navLinks = [
 
   .header-dark .mobile-btn {
     color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .header-dark .mobile-btn:hover {
     background: rgba(255, 255, 255, 0.1);
+  }
+
+  .header-dark .mobile-menu-container {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-dark .mobile-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .header-dark .mobile-nav-link:hover,
+  .header-dark .mobile-nav-link:active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
   }
 </style>
 
